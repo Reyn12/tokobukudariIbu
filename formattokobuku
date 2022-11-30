@@ -25,59 +25,59 @@ while Lagi == 'Y' and JumlahData <= 5 :
     KodeBK = str(input("Masukkan Kode Buku : "))
     KodeBK = KodeBK.upper()
     while KodeBK != 'FSK01' and KodeBK != 'KIM02' and KodeBK != 'BIG03' and KodeBK != 'MTK04' and KodeBK != 'BIN05':
-        print("Salah Kode Buku, Ulangi")
-        KodeBK = str(input("Masukkan Kode Buku : "))
+       print("Salah Kode Buku, Ulangi")
+       KodeBK = str(input("Masukkan Kode Buku : "))
 
 #  Menentukan Nama Buku
-if KodeBK == 'FSK01':
-    NamaBK = 'Fisika'
-else:
-    if KodeBK == 'KIM02':
-        NamaBK = 'Kimia'
-    elif KodeBK == 'BIG03':
-        NamaBK = 'Biologi'
-    elif KodeBK == 'MTK04':
-        NamaBK = 'Matematika'
-    else :
-        NamaBK = 'Bahasa Indonesia'
-print('Nama Buku : ', NamaBK)
-
-HargaBeli = int(input("Masukkan Harga beli : "))
-# Menentukan Harga Jual
-HargaJual = HargaBeli + 0.125 + HargaBeli
-if KodeBK == 'KIM02' or KodeBK == 'BIG03':
-    HargaJual = HargaBeli + 0.15 * HargaBeli
-print('Harga Jual : ', HargaJual)
-
-Stok = int(input('Masukkan Stok : '))
-StokAman = int(input('Masukkan Stok Aman : '))
-
-# Menentukan Status Aman Atau Tidak Aman
-if Stok == StokAman:
-    Status = "Tidak Aman"
-    TotalTidakAman = TotalTidakAman + 1
-    if TotalTidakAman == 1:
-        Kode1 = KodeBK
-    elif TotalTidakAman == 2:
-        Kode2 = KodeBK
-    elif TotalTidakAman == 1:
-        Kode3 = KodeBK
-    elif TotalTidakAman == 1:
-        Kode4 = KodeBK
+    if KodeBK == 'FSK01':
+        NamaBK = 'Fisika'
     else:
-        Kode5 = KodeBK
-else:
-    Status = 'Aman'
-    TotalAman = TotalAman + 1
-print('Status : ',Status) 
-Lagi = str(input('Mau Memasukkan Data Lagi {Y/T} ?: '))
-# 'Memasukkan Pilihan Y atau T
+        if KodeBK == 'KIM02':
+            NamaBK = 'Kimia'
+        elif KodeBK == 'BIG03':
+            NamaBK = 'Biologi'
+        elif KodeBK == 'MTK04':
+            NamaBK = 'Matematika'
+        else :
+            NamaBK = 'Bahasa Indonesia'
+    print('Nama Buku : ', NamaBK)
+
+    HargaBeli = int(input("Masukkan Harga beli : "))
+# Menentukan Harga Jual
+    HargaJual = HargaBeli + 0.125 + HargaBeli
+    if KodeBK == 'KIM02' or KodeBK == 'BIG03':
+        HargaJual = HargaBeli + 0.15 * HargaBeli
+    print('Harga Jual : ', HargaJual)
+
+    Stok = int(input('Masukkan Stok : '))
+    StokAman = int(input('Masukkan Stok Aman : '))
+
+    # Menentukan Status Aman Atau Tidak Aman
+    if Stok <= StokAman:
+        Status = "Tidak Aman"
+        TotalTidakAman = TotalTidakAman + 1
+        if TotalTidakAman == 1:
+            Kode1 = KodeBK
+        elif TotalTidakAman == 2:
+            Kode2 = KodeBK
+        elif TotalTidakAman == 1:
+            Kode3 = KodeBK
+        elif TotalTidakAman == 1:
+            Kode4 = KodeBK
+        else:
+            Kode5 = KodeBK
+    else:
+        Status = 'Aman'
+        TotalAman = TotalAman + 1
+    print('Status : ',Status) 
+    Lagi = str(input('Mau Memasukkan Data Lagi {Y/T} ?: '))
+    # 'Memasukkan Pilihan Y atau T
 
 
 #  Garis Penutup Tabel
 print('----------------------------------')
-print('Jumlah Buku : ',JumlahData, TotalAman, TotalTidakAman)
-print('Status Aman : ', TotalAman)
+print('Jumlah Buku : ',JumlahData, 'Buku')
+print('Status Aman : ', TotalAman, 'Buku')
 print('Status Tidak Aman :', TotalTidakAman, 'yaitu Buku dengan Kode')
 
 #  Menampilkan Kode Buku Yang Statusnya Tidak Aman
